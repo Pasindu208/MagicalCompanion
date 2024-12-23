@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    flex-wrap: wrap; // Allow wrapping for smaller screens
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.heading {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center; // Center text on smaller screens
+}
+
+@media (max-width: 768px) {
+    .container {
+        justify-content: space-between; // Adjust alignment for smaller screens
+    }
+
+    .logo {
+        margin-right: 10px; // Reduce margin on smaller screens
+    }
+
+    .heading {
+        font-size: 24px; // Adjust font size for smaller screens
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column; // Stack elements vertically on very small screens
+        align-items: center;
+    }
+
+    .logo {
+        margin-right: 0; // Remove margin when stacked
+        margin-bottom: 10px; // Add margin below the logo
+    }
+
+    .heading {
+        font-size: 20px; // Further adjust font size for very small screens
+    }
+}

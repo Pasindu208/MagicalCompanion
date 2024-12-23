@@ -1,0 +1,56 @@
+.spellsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.spellName {
+  color: #1a1a1a;
+  font-size: 1.5rem;
+  margin: 0 0 8px 0;
+}
+
+.spellUse {
+  color: #666666;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.loading, .error, .loadingMore {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+.loadingMore {
+  grid-column: 1 / -1;
+  color: #666666;
+}
+
+.loadingMoreContainer {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .loadingMoreContainer {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+}

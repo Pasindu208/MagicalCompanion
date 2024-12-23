@@ -1,11 +1,30 @@
 import React from "react";
 import HomePage from "./pages/home";
+import Spells from "./pages/spells";
+import Books from "./pages/books";
+import Characters from "./pages/characters";
+import Houses from "./pages/houses";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
+  },
+  {
+    path: "/spells",
+    element: <Spells />,
+  },
+  {
+    path: "/books",
+    element: <Books />,
+  },
+  {
+    path: "/houses",
+    element: <Houses />,
+  },{
+    path: "/characters",
+    element: <Characters />,
   },
 ])
 
