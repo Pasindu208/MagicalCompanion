@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import axios from 'axios';
+import axios, { all } from 'axios';
 import ResponsiveAppBar from '../components/header';
 import SpellCard from '../components/SpellCard';
 import SpellCardSkeleton from '../components/SpellCardSkeleton';
@@ -28,8 +28,10 @@ const Spells = () => {
   useEffect(() => {
     const fetchSpells = async () => {
       try {
-        const response = await axios.get('https://potterapi-fedeperin.vercel.app/en/spells');
+        // const response = await axios.get('https://potterapi-fedeperin.vercel.app/en/spells');
+        const response = await axios.get('https://magical-companion-api.vercel.app/spells');
         const allSpells = response.data;
+        console.log(allSpells);
         const start = 0;
         const end = SPELLS_PER_PAGE;
         setSpells(allSpells.slice(start, end));
@@ -50,7 +52,8 @@ const Spells = () => {
     
     const loadMoreSpells = async () => {
       try {
-        const response = await axios.get('https://potterapi-fedeperin.vercel.app/en/spells');
+        // const response = await axios.get('https://potterapi-fedeperin.vercel.app/en/spells');
+        const response = await axios.get('https://magical-companion-api.vercel.app/spells');
         const allSpells = response.data;
         const start = page * SPELLS_PER_PAGE;
         const end = start + SPELLS_PER_PAGE;
