@@ -5,6 +5,7 @@ import Books from "./pages/books";
 import Characters from "./pages/characters";
 import Houses from "./pages/houses";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import CharacterInfo from "./pages/characterInfo";
 
 const router = createBrowserRouter([
   {
@@ -22,9 +23,14 @@ const router = createBrowserRouter([
   {
     path: "/houses",
     element: <Houses />,
-  },{
+  },
+  {
     path: "/characters",
     element: <Characters />,
+  },
+  {
+    path: "/characters/:name",
+    element: <CharacterInfo />,
   },
 ])
 
