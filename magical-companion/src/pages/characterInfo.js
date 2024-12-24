@@ -14,7 +14,7 @@ const CharacterInfo = () => {
         try {
             const response = await axios.get(
                 // `https://api.potterdb.com/v1/characters?filter[name_eq]=${name}`
-                `https://potterhead-api.vercel.app/api/characters/harry%20potter`
+                `https://cors-anywhere.herokuapp.com/https://potterhead-api.vercel.app/api/characters/harry%20potter`
             );
             // const response = await axios.get('https://api.potterdb.com/v1/characters');
             console.log(response.data);
