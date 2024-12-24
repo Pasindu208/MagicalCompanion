@@ -10,7 +10,8 @@ const Characters = () => {
         try {
             const response = await axios.get(
                 // "https://potterapi-fedeperin.vercel.app/en/characters"
-                "https://potterhead-api.vercel.app/api/characters"
+                // "https://potterhead-api.vercel.app/api/characters"
+                "https://magical-companion-api.vercel.app/characters"
             );
             // const response = await axios.get('https://api.potterdb.com/v1/characters');
             console.log(response.data);
