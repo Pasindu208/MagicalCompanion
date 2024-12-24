@@ -6,6 +6,7 @@ import Characters from "./pages/characters";
 import Houses from "./pages/houses";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CharacterInfo from "./pages/characterInfo";
+import Movies from "./pages/movies";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
     path: "/characters/:name",
     element: <CharacterInfo />,
   },
+  {
+    path: "/movies",
+    element: <Movies />,
+  }
 ])
 
 function App() {
