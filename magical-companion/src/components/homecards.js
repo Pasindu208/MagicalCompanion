@@ -10,6 +10,7 @@ import wand from '../assets/wand.png';
 import quill from '../assets/quill.png';
 import character from '../assets/character.png';
 import house from '../assets/house.png';
+import movies from '../assets/train.png';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/homecards.module.scss';
 
@@ -31,6 +32,11 @@ export default function ActionAreaCard() {
       image: quill,
       title: "Books",
       path: "/books"
+    },
+    {
+      image: movies,
+      title: "Movies",
+      path: "/movies"
     },
     {
       image: house,
