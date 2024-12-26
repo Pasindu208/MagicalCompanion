@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CharacterInfo from "./pages/characterInfo";
 import Movies from "./pages/movies";
 import BooksInfo from "./pages/booksInfo";
+import MoviesInfo from "./pages/movieInfo";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/books/:serial",
     element: <BooksInfo/>
+  },
+  {
+    path: "/movies/:serial",
+    element: <MoviesInfo/>
   }
 ])
 

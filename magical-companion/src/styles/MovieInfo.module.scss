@@ -1,0 +1,142 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contentWrapper {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.bookCard {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    padding: 1rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.posterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .wikiButton {
+        display: inline-block;
+        width: 100%;
+        padding: 0.8rem;
+        background-color: #1a1a1a;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #333;
+        }
+    }
+}
+
+.infoContainer {
+    h1 {
+        margin: 0 0 1.5rem 0;
+        color: #333;
+        font-size: 2rem;
+    }
+
+    h3 {
+        color: #333;
+        margin: 1.5rem 0 1rem;
+    }
+}
+
+.detailsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.detailItem {
+    strong {
+        display: block;
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+
+    span {
+        color: #333;
+        font-size: 1rem;
+    }
+}
+
+.summary {
+    margin: 2rem 0;
+    
+    p {
+        line-height: 1.6;
+        color: #666;
+    }
+}
+
+.crewDetails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-top: 1rem;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}
+
+.error {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+}
+
+.wikiLink {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+        color: #2980b9;
+    }
+}
