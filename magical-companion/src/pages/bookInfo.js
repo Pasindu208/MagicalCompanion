@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './BookInfo.module.css';
+import styles from './BooksInfo.module.css';
 
 const BookInfo = ({ bookInfo }) => {
     return (

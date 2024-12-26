@@ -1,0 +1,82 @@
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.skeletonCard {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+}
+
+.imageBox {
+    flex: 0 0 300px;
+    height: 400px;
+    background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+    background-size: 2000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 5px;
+
+    @media (max-width: 768px) {
+        height: 200px;
+        flex: 0 0 200px;
+    }
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.titleBox {
+    height: 40px;
+    width: 60%;
+    background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+    background-size: 2000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 4px;
+}
+
+.textBox {
+    height: 20px;
+    width: 40%;
+    background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+    background-size: 2000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 4px;
+}
+
+.longBox {
+    height: 100px;
+    width: 100%;
+    background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+    background-size: 2000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 4px;
+}
+
+.textRow {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .textBox {
+        width: calc(50% - 0.5rem);
+    }
+}
