@@ -25,8 +25,18 @@
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "orientation": "portrait",
-  "categories": ["entertainment", "books"],
+  "categories": [
+    "entertainment",
+    "books"
+  ],
   "description": "Magical Companion App is an all-in-one resource for fans of the Harry Potter series",
-  "screenshots": [],
+  "screenshots": [
+    {
+      "src": "home.png",
+      "sizes": "1080x2400",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
   "prefer_related_applications": false
 }
