@@ -11,6 +11,23 @@ const MovieInfo = () => {
     const [movieInfo, setMovieInfo] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
+    const getEmbedUrl = (url) => {
+        if (!url) return '';
+        // Handle youtube.com/watch?v= format
+        const watchRegex = /youtube\.com\/watch\?v=([^&]+)/;
+        // Handle youtu.be/ format
+        const shortRegex = /youtu\.be\/([^?]+)/;
+        
+        let videoId = '';
+        if (url.match(watchRegex)) {
+            videoId = url.match(watchRegex)[1];
+        } else if (url.match(shortRegex)) {
+            videoId = url.match(shortRegex)[1];
+        }
+        
+        return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+    };
+
     useEffect(() => {
         fetchMovieInfo();
     }, []);
@@ -182,14 +199,16 @@ const MovieInfo = () => {
                                         <h3>Trailer</h3>
                                         <div className={styles.videoWrapper}>
                                             <iframe
-                                                src={movieInfo.trailer}
+                                                src={getEmbedUrl(movieInfo.trailer)}
                                                 title="Movie Trailer"
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                 allowFullScreen></iframe>
                                         </div>
                                     </div>
                                 )}
                                 <a
-                                    href={movieInfo.wikiLink}
+                                    href={movieInfo.wiki}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={styles.wikiLink}>

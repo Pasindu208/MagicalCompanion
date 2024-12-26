@@ -9,6 +9,7 @@ import CharacterInfo from "./pages/characterInfo";
 import Movies from "./pages/movies";
 import BooksInfo from "./pages/booksInfo";
 import MoviesInfo from "./pages/movieInfo";
+import HouseInfo from "./pages/houseInfo";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/movies/:serial",
     element: <MoviesInfo/>
+  },
+  {
+    path: "/houses/:name",
+    element: <HouseInfo />,
   }
 ])
 
