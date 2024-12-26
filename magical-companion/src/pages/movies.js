@@ -28,16 +28,16 @@ const Movies = () => {
 
     const handleSearch = (searchTerm) => {
         setIsSearching(searchTerm.length > 0);
-        const filtered = movies.filter((movie) => 
+        const filtered = movies.filter((movie) =>
             movie.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setFilteredMovies(filtered);
     };
 
     const handleLoading = (id, isLoading) => {
-        setLoadingStates(prev => ({
+        setLoadingStates((prev) => ({
             ...prev,
-            [id]: isLoading
+            [id]: isLoading,
         }));
     };
 
@@ -66,33 +66,62 @@ const Movies = () => {
                                 </div>
                             ) : (
                                 <div className={styles.grid}>
-                                    {(filteredMovies.length > 0 ? filteredMovies : movies)
-                                        .map((movie) => (
-                                            <Link key={movie.id} to={`/movies/${movie.serial}`}>
-                                                <div className={styles.bookCard}>
-                                                    <div className={styles.imageContainer}>
-                                                        {(!loadingStates[movie.id]) && 
-                                                            <CharacterCardSkeleton />
+                                    {(filteredMovies.length > 0
+                                        ? filteredMovies
+                                        : movies
+                                    ).map((movie) => (
+                                        <Link
+                                            key={movie.id}
+                                            to={`/movies/${movie.serial}`}>
+                                            <div className={styles.bookCard}>
+                                                <div
+                                                    className={
+                                                        styles.imageContainer
+                                                    }>
+                                                    {!loadingStates[
+                                                        movie.id
+                                                    ] && (
+                                                        <CharacterCardSkeleton />
+                                                    )}
+                                                    <LazyLoadImage
+                                                        src={
+                                                            movie.poster ||
+                                                            "https://via.placeholder.com/200x300?text=No+Poster"
                                                         }
-                                                        <LazyLoadImage
-                                                            src={movie.poster || "https://via.placeholder.com/200x300?text=No+Poster"}
-                                                            alt={movie.title}
-                                                            className={styles.posterImage}
-                                                            effect="opacity"
-                                                            beforeLoad={() => handleLoading(movie.id, false)}
-                                                            afterLoad={() => handleLoading(movie.id, true)}
-                                                            onError={(e) => {
-                                                                e.target.src = "https://via.placeholder.com/200x300?text=No+Poster";
-                                                                handleLoading(movie.id, true);
-                                                            }}
-                                                        />
-                                                    </div>
-                                                    <div className={styles.bookInfo}>
-                                                        <h3>{movie.title}</h3>
-                                                        <p>{movie.release_date}</p>
-                                                    </div>
+                                                        alt={movie.title}
+                                                        className={
+                                                            styles.posterImage
+                                                        }
+                                                        effect="opacity"
+                                                        beforeLoad={() =>
+                                                            handleLoading(
+                                                                movie.id,
+                                                                false
+                                                            )
+                                                        }
+                                                        afterLoad={() =>
+                                                            handleLoading(
+                                                                movie.id,
+                                                                true
+                                                            )
+                                                        }
+                                                        onError={(e) => {
+                                                            e.target.src =
+                                                                "https://via.placeholder.com/200x300?text=No+Poster";
+                                                            handleLoading(
+                                                                movie.id,
+                                                                true
+                                                            );
+                                                        }}
+                                                    />
                                                 </div>
-                                            </Link>
+                                                <div
+                                                    className={styles.bookInfo}>
+                                                    <h3>{movie.title}</h3>
+                                                    <p>{movie.release_date}</p>
+                                                </div>
+                                            </div>
+                                        </Link>
                                     ))}
                                 </div>
                             )}
