@@ -1,7 +1,7 @@
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: justify;
+    align-items: justify;
     min-height: 80vh;
     margin-top: -40px;
     padding: 16px;
@@ -9,9 +9,9 @@
 
 .gridContainer {
     display: grid;
-    grid-template-columns: repeat(2, minmax(150px, 200px));
-    gap: 20px;
-    max-width: 600px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    gap: 32px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     justify-content: center;
@@ -90,6 +90,31 @@
 
 @media (min-width: 1024px) {
     .gridContainer {
-        grid-template-columns: repeat(2, 200px);
+        grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+        gap: 40px;
+    }
+
+    .card {
+        min-height: 300px;
+    }
+
+    .cardMedia {
+        height: 160px;
+        padding: 24px;
+    }
+
+    .cardContent {
+        padding: 16px !important;
+        
+        h5 {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    .gridContainer {
+        grid-template-columns: repeat(4, minmax(280px, 320px));
+        max-width: 1400px;
     }
 }

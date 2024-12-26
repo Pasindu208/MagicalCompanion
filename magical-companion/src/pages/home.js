@@ -8,9 +8,9 @@ const HomePage = () => {
         <div className={styles.container}>
             <ResponsiveAppBar />
             <div className={styles.heading}>Welcome to Magical Companion!</div>
-
-            <ActionAreaCard />
-            
+            <div className={styles.cardGrid}>
+                <ActionAreaCard />
+            </div>
         </div>
     );
 };

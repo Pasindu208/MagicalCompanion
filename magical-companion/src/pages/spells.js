@@ -12,6 +12,7 @@ const Spells = () => {
     const [filteredSpells, setFilteredSpells] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isSearching, setIsSearching] = useState(false);
 
     useEffect(() => {
         const fetchSpells = async () => {
@@ -32,10 +33,17 @@ const Spells = () => {
     }, []);
 
     const handleSearch = (searchTerm) => {
-        const filtered = spells.filter(spell => 
-            spell && spell.name && 
-            spell.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
+        setIsSearching(searchTerm.length > 0);
+        const filtered = spells.filter(spell => {
+            if (!spell) return false;
+            
+            const nameMatch = spell.name && 
+                spell.name.toLowerCase().includes(searchTerm.toLowerCase());
+            const effectMatch = spell.effect &&
+                spell.effect.toLowerCase().includes(searchTerm.toLowerCase());
+            
+            return nameMatch || effectMatch;
+        });
         setFilteredSpells(filtered);
     };
 
@@ -56,14 +64,27 @@ const Spells = () => {
             <ResponsiveAppBar />
             <BackButton />
             <Search onSearch={handleSearch} pageName="spells" />
-            <div className={styles.spellsContainer}>
-                {(filteredSpells.length > 0 ? filteredSpells : spells).map((spell, index) => (
-                    <div key={`${spell.spell}-${index}`}>
-                        <SpellCard spell={spell} />
-                    </div>
-                ))}
-                {loading && renderSkeletons()}
-            </div>
+            {loading ? (
+                <div className={styles.spellsContainer}>
+                    {renderSkeletons()}
+                </div>
+            ) : (
+                <>
+                    {isSearching && filteredSpells.length === 0 ? (
+                        <div className={styles.noResults}>
+                            <p>No spells found matching your search.</p>
+                        </div>
+                    ) : (
+                        <div className={styles.spellsContainer}>
+                            {(filteredSpells.length > 0 ? filteredSpells : spells).map((spell, index) => (
+                                <div key={`${spell.spell}-${index}`}>
+                                    <SpellCard spell={spell} />
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </>
+            )}
         </div>
     );
 };

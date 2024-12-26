@@ -1,0 +1,114 @@
+.container {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+        padding: 2rem;
+    }
+}
+
+.bookCard {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+}
+
+.imageContainer {
+    flex: 0 0 300px;
+    
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        flex: 0 0 auto;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
+.bookInfo {
+    flex: 1;
+
+    h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+
+        @media (min-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+        color: #34495e;
+        
+        strong {
+            color: #2c3e50;
+        }
+
+        @media (min-width: 768px) {
+            font-size: 1.1rem;
+        }
+    }
+
+    .summary {
+        margin-top: 1rem;
+        line-height: 1.6;
+        text-align: justify;
+
+        @media (min-width: 768px) {
+            margin-top: 1.5rem;
+        }
+    }
+
+    .dedication {
+        margin-top: 1rem;
+        font-style: italic;
+        color: #7f8c8d;
+
+        @media (min-width: 768px) {
+            margin-top: 1.5rem;
+        }
+    }
+
+    .wikiLink {
+        display: inline-block;
+        margin-top: 1rem;
+        color: #3498db;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #2980b9;
+        }
+    }
+}
+
+.title {
+    text-align: center;
+    color: #2c3e50;
+    margin: 1rem 0;
+    font-size: 2rem;
+
+    @media (min-width: 768px) {
+        font-size: 2.5rem;
+        margin: 2rem 0;
+    }
+}

@@ -10,6 +10,7 @@ import Search from "../components/search";
 const Characters = () => {
     const [characters, setCharacters] = useState([]);
     const [filteredCharacters, setFilteredCharacters] = useState([]);
+    const [isSearching, setIsSearching] = useState(false);
 
     const fetchAllCharacters = async () => {
         try {
@@ -24,6 +25,7 @@ const Characters = () => {
     };
 
     const handleSearch = (searchTerm) => {
+        setIsSearching(searchTerm.length > 0);
         const filtered = characters.filter(character => {
             if (!character) return false;
             
@@ -56,28 +58,36 @@ const Characters = () => {
                     ))}
                 </div>
             ) : (
-                <div className={styles.charactersContainer}>
-                    {(filteredCharacters.length > 0 ? filteredCharacters : characters).map((character) => (
-                        <Link key={character.id} to={`/characters/${character.name}`}>
-                            <div className={styles.card}>
-                                <img 
-                                    src={character.image_url || 'https://via.placeholder.com/200x200?text=No+Image'} 
-                                    alt={character.name}
-                                    className={styles.characterImage}
-                                    onError={(e) => {
-                                        e.target.src = 'https://via.placeholder.com/200x200?text=No+Image';
-                                    }}
-                                />
-                                <h2 className={styles.characterName}>{character.name}</h2>
-                                {/* {character.house && (
-                                    // <p className={styles.characterInfo}>
-                                    //     House: {character.house}
-                                    // </p>
-                                )} */}
-                            </div>
-                        </Link>
-                    ))}
-                </div>
+                <>
+                    {isSearching && filteredCharacters.length === 0 ? (
+                        <div className={styles.noResults}>
+                            <p>No characters found matching your search.</p>
+                        </div>
+                    ) : (
+                        <div className={styles.charactersContainer}>
+                            {(filteredCharacters.length > 0 ? filteredCharacters : characters).map((character) => (
+                                <Link key={character.id} to={`/characters/${character.name}`}>
+                                    <div className={styles.card}>
+                                        <img 
+                                            src={character.image_url || 'https://via.placeholder.com/200x200?text=No+Image'} 
+                                            alt={character.name}
+                                            className={styles.characterImage}
+                                            onError={(e) => {
+                                                e.target.src = 'https://via.placeholder.com/200x200?text=No+Image';
+                                            }}
+                                        />
+                                        <h2 className={styles.characterName}>{character.name}</h2>
+                                        {/* {character.house && (
+                                            // <p className={styles.characterInfo}>
+                                            //     House: {character.house}
+                                            // </p>
+                                        )} */}
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );
