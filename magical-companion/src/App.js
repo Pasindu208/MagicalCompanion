@@ -7,6 +7,7 @@ import Houses from "./pages/houses";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CharacterInfo from "./pages/characterInfo";
 import Movies from "./pages/movies";
+import BooksInfo from "./pages/booksInfo";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/movies",
     element: <Movies />,
+  },
+  {
+    path: "/books/:serial",
+    element: <BooksInfo/>
   }
 ])
 

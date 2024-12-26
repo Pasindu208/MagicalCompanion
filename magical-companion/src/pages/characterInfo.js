@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ResponsiveAppBar from "../components/header";
+import BackButton from "../components/backbtn";
 
 const CharacterInfo = () => {
     const { name } = useParams();
@@ -26,6 +28,8 @@ const CharacterInfo = () => {
     };
     return (
         <div>
+            <ResponsiveAppBar />
+            <BackButton />
             <h2>Character Information</h2>
             {characterInfo.data?.map((character) => (
                 <div key={character.id}>

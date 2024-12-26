@@ -1,0 +1,56 @@
+.charactersContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.card {
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.characterImage {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 0;
+}
+
+.loadingContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+.characterName {
+  color: #1a1a1a;
+  font-size: 1.5rem;
+  margin: 0 0 8px 0;
+  padding: 0 16px;
+}
+
+.characterInfo {
+  color: #666666;
+  font-size: 1rem;
+  line-height: 1.4;
+  padding: 16px;
+}

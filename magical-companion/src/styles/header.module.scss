@@ -2,30 +2,52 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 1rem;
     background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     flex-wrap: wrap; // Allow wrapping for smaller screens
+    
+    &:hover {
+        background-color: #fff;
+    }
 }
 
 .logo {
     width: 50px;
     height: 50px;
-    margin-right: 20px;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+        transform: scale(1.1) rotate(5deg);
+    }
 }
 
 .heading {
-    font-size: 32px;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 700;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
     text-align: center; // Center text on smaller screens
+    
+    &:hover {
+        color: #666;
+    }
 }
 
 @media (max-width: 768px) {
     .container {
         justify-content: space-between; // Adjust alignment for smaller screens
+        padding: 0.75rem;
     }
 
     .logo {
         margin-right: 10px; // Reduce margin on smaller screens
+        width: 40px;
+        height: 40px;
     }
 
     .heading {
@@ -37,11 +59,15 @@
     .container {
         flex-direction: column; // Stack elements vertically on very small screens
         align-items: center;
+        padding: 0.5rem;
+        gap: 0.5rem;
     }
 
     .logo {
         margin-right: 0; // Remove margin when stacked
         margin-bottom: 10px; // Add margin below the logo
+        width: 35px;
+        height: 35px;
     }
 
     .heading {

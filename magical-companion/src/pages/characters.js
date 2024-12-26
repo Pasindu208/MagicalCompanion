@@ -2,23 +2,42 @@ import React, { useEffect, useState } from "react";
 import ResponsiveAppBar from "../components/header";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import CharacterCardSkeleton from "../components/CharacterCardSkeleton";
+import styles from '../styles/characters.module.scss';
+import BackButton from "../components/backbtn";
+import Search from "../components/search";
 
 const Characters = () => {
     const [characters, setCharacters] = useState([]);
+    const [filteredCharacters, setFilteredCharacters] = useState([]);
 
     const fetchAllCharacters = async () => {
         try {
             const response = await axios.get(
-                // "https://potterapi-fedeperin.vercel.app/en/characters"
-                // "https://potterhead-api.vercel.app/api/characters"
                 "https://magical-companion-api.vercel.app/characters"
             );
-            // const response = await axios.get('https://api.potterdb.com/v1/characters');
             console.log(response.data);
             setCharacters(response.data);
         } catch (error) {
             console.error("Error fetching characters:", error);
         }
+    };
+
+    const handleSearch = (searchTerm) => {
+        const filtered = characters.filter(character => {
+            if (!character) return false;
+            
+            const nameMatch = character.name && 
+                character.name.toLowerCase().includes(searchTerm.toLowerCase());
+            
+            const alternateMatch = character.alternate_names && 
+                character.alternate_names.some(altName => 
+                    altName.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            
+            return nameMatch || alternateMatch;
+        });
+        setFilteredCharacters(filtered);
     };
 
     useEffect(() => {
@@ -28,19 +47,37 @@ const Characters = () => {
     return (
         <div>
             <ResponsiveAppBar />
-            Characters Characters size: {characters?.length}
+            <BackButton />
+            <Search onSearch={handleSearch} pageName="Characters"/>
             {characters?.length === 0 ? (
-                <p>Loading characters...</p>
+                <div className={styles.loadingContainer}>
+                    {[...Array(8)].map((_, index) => (
+                        <CharacterCardSkeleton key={index} />
+                    ))}
+                </div>
             ) : (
-                characters.map((character) => (
-                    <div key={character.id}>
-                        <Link to={`/characters/${character.name}`}>
-                            <h2>{character.name}</h2>
+                <div className={styles.charactersContainer}>
+                    {(filteredCharacters.length > 0 ? filteredCharacters : characters).map((character) => (
+                        <Link key={character.id} to={`/characters/${character.name}`}>
+                            <div className={styles.card}>
+                                <img 
+                                    src={character.image_url || 'https://via.placeholder.com/200x200?text=No+Image'} 
+                                    alt={character.name}
+                                    className={styles.characterImage}
+                                    onError={(e) => {
+                                        e.target.src = 'https://via.placeholder.com/200x200?text=No+Image';
+                                    }}
+                                />
+                                <h2 className={styles.characterName}>{character.name}</h2>
+                                {/* {character.house && (
+                                    // <p className={styles.characterInfo}>
+                                    //     House: {character.house}
+                                    // </p>
+                                )} */}
+                            </div>
                         </Link>
-                        {/* <p>House: {character.house}</p>
-                        <p>Patronus: {character.patronus}</p> */}
-                    </div>
-                ))
+                    ))}
+                </div>
             )}
         </div>
     );
