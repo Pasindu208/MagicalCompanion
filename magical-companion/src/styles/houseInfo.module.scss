@@ -1,57 +1,80 @@
 .container {
-    padding: 2rem;
+    padding: 1rem;
     max-width: 1200px;
     margin: 0 auto;
+
+    @media (min-width: 768px) {
+        padding: 2rem;
+    }
+}
+
+.title {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin: 1rem 0;
+
+    @media (min-width: 768px) {
+        font-size: 2.5rem;
+        margin: 2rem 0;
+    }
 }
 
 .houseInfo {
-    background-color: #ffffff;
-    border-radius: 12px;
+    background: white;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-}
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
 
-.header {
-    text-align: center;
-    margin-bottom: 2rem;
-
-    h1 {
-        font-size: 3rem;
-        color: #2c3e50;
-        margin-bottom: 1.5rem;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
     }
 }
 
 .crest {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-
+    flex: 0 0 300px;
+    
+    @media (max-width: 768px) {
+        flex: 0 0 auto;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
     img {
-        width: 250px;
-        height: 250px;
-        object-fit: contain;
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 }
 
 .content {
-    max-width: 800px;
-    margin: 0 auto;
-}
+    flex: 1;
 
-.mainInfo {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 2rem;
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+
+        @media (min-width: 768px) {
+            font-size: 2rem;
+        }
+    }
 }
 
 .infoSection {
-    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ecf0f1;
 
-    h2 {
-        color: #2c3e50;
-        margin-bottom: 1rem;
-        font-size: 1.8rem;
+    @media (min-width: 768px) {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
     }
 }
 
@@ -59,7 +82,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .trait {
@@ -72,8 +95,9 @@
 
 .infoGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .infoItem {
@@ -85,6 +109,7 @@
 
     p {
         color: #495057;
+        margin-bottom: 0.8rem;
     }
 }
 

@@ -36,75 +36,70 @@ const HouseInfo = () => {
             <ResponsiveAppBar />
             <BackButton />
             <div className={styles.container}>
+                <h2 className={styles.title}>House Information</h2>
                 {isLoading ? (
                     <LoadingSkeleton type="house" />
                 ) : houseInfo ? (
                     <div className={styles.houseInfo}>
-                        <div className={styles.header}>
-                            <h1>{houseInfo.name}</h1>
-                            {houseInfo.image && (
-                                <div className={styles.crest}>
-                                    <img 
-                                        src={houseInfo.image} 
-                                        alt={`${houseInfo.name} crest`}
-                                        onError={(e) => {
-                                            e.target.src = "https://via.placeholder.com/300x300?text=No+Crest";
-                                        }}
-                                    />
-                                </div>
-                            )}
+                        <div className={styles.crest}>
+                            <img 
+                                src={houseInfo.image} 
+                                alt={`${houseInfo.name} crest`}
+                                onError={(e) => {
+                                    e.target.src = "https://via.placeholder.com/300x300?text=No+Crest";
+                                }}
+                            />
                         </div>
-
                         <div className={styles.content}>
-                            <div className={styles.mainInfo}>
-                                <div className={styles.infoSection}>
-                                    <h2>House Traits</h2>
-                                    <div className={styles.traits}>
-                                        {houseInfo.traits.map(trait => (
-                                            <span key={trait} className={styles.trait}>
-                                                {trait}
-                                            </span>
-                                        ))}
-                                    </div>
+                            <h1>{houseInfo.name}</h1>
+                            
+                            <div className={styles.infoSection}>
+                                <h3>House Traits</h3>
+                                <div className={styles.traits}>
+                                    {houseInfo.traits.map(trait => (
+                                        <span key={trait} className={styles.trait}>
+                                            {trait}
+                                        </span>
+                                    ))}
                                 </div>
+                            </div>
 
-                                <div className={styles.infoGrid}></div>
-                                    <div className={styles.infoItem}>
-                                        <h3>Founder</h3>
-                                        <p>{houseInfo.founder}</p>
-                                    </div>
-                                    <div className={styles.infoItem}>
-                                        <h3>House Ghost</h3>
-                                        <p>{houseInfo.ghost}</p>
-                                    </div>
-                                    <div className={styles.infoItem}>
-                                        <h3>Head of House</h3>
-                                        <p>{houseInfo.head_of_house}</p>
-                                    </div>
-                                    <div className={styles.infoItem}>
-                                        <h3>Animal</h3>
-                                        <p>{houseInfo.animal}</p>
-                                    </div>
-                                    <div className={styles.infoItem}>
-                                        <h3>Common Room</h3>
-                                        <p>{houseInfo.common_room_location}</p>
-                                    </div>
-                                    <div className={styles.infoItem}>
-                                        <h3>Colors</h3>
-                                        <div className={styles.colors}>
-                                            {houseInfo.colors.map(color => (
-                                                <span 
-                                                    key={color} 
-                                                    className={styles.colorDot}
-                                                    style={{ backgroundColor: color.toLowerCase() }}
-                                                />
-                                            ))}
-                                        </div>
+                            <div className={styles.infoGrid}>
+                                <div className={styles.infoItem}>
+                                    <h3>Founder</h3>
+                                    <p>{houseInfo.founder}</p>
+                                </div>
+                                <div className={styles.infoItem}>
+                                    <h3>House Ghost</h3>
+                                    <p>{houseInfo.ghost}</p>
+                                </div>
+                                <div className={styles.infoItem}>
+                                    <h3>Head of House</h3>
+                                    <p>{houseInfo.head_of_house}</p>
+                                </div>
+                                <div className={styles.infoItem}>
+                                    <h3>Animal</h3>
+                                    <p>{houseInfo.animal}</p>
+                                </div>
+                                <div className={styles.infoItem}>
+                                    <h3>Common Room</h3>
+                                    <p>{houseInfo.common_room_location}</p>
+                                </div>
+                                <div className={styles.infoItem}>
+                                    <h3>Colors</h3>
+                                    <div className={styles.colors}>
+                                        {houseInfo.colors.map(color => (
+                                            <span 
+                                                key={color} 
+                                                className={styles.colorDot}
+                                                style={{ backgroundColor: color.toLowerCase() }}
+                                            />
+                                        ))}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    // </div>
+                    </div>
                 ) : (
                     <div className={styles.error}>House not found</div>
                 )}
