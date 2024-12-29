@@ -1,24 +1,42 @@
 .container {
     min-height: 100vh;
-    background-color: #f5f5f5;
+    background-color: #f8f9fa;
+}
+
+.hero {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    padding: 4rem 2rem;
+    color: white;
+    text-align: center;
 }
 
 .heading {
-    font-size: 2.5rem;
-    text-align: center;
-    padding: 0.5rem 0;
-    color: #333;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .description {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #666;
+    font-size: 1.2rem;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.cardGrid {
-    padding: 1rem 0;
+.mainContent {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    margin: -3rem 1rem 2rem;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    @media (min-width: 768px) {
+        margin: -3rem auto 2rem;
+        max-width: 1200px;
+    }
 }

@@ -7,8 +7,14 @@ const HomePage = () => {
     return (
         <div className={styles.container}>
             <ResponsiveAppBar />
-            <div className={styles.heading}>Welcome to Magical Companion!</div>
-            <div className={styles.cardGrid}>
+            <div className={styles.hero}>
+                <h1 className={styles.heading}>Welcome to Magical Companion!</h1>
+                <p className={styles.description}>
+                    Your ultimate tool for managing and organizing all your magical adventures.
+                    Keep track of your spells, inventory, and companions all in one place.
+                </p>
+            </div>
+            <div className={styles.mainContent}>
                 <ActionAreaCard />
             </div>
         </div>
