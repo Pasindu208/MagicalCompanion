@@ -13,6 +13,7 @@ import house from '../assets/house.png';
 import movies from '../assets/train.png';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/homecards.module.scss';
+import hp from '../assets/hp.png';
 
 export default function ActionAreaCard() {
   const navigate = useNavigate();
@@ -42,6 +43,11 @@ export default function ActionAreaCard() {
       image: house,
       title: "Houses",
       path: "/houses"
+    },
+    {
+      image: hp,
+      title: "Chat",
+      path: "/chat"
     }
   ];
 

@@ -10,6 +10,7 @@ import Movies from "./pages/movies";
 import BooksInfo from "./pages/booksInfo";
 import MoviesInfo from "./pages/movieInfo";
 import HouseInfo from "./pages/houseInfo";
+import Chat from "./pages/chat";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
   {
     path: "/houses/:name",
     element: <HouseInfo />,
+  },
+  {
+    path: "/chat",
+    element: <Chat />,
   }
 ])
 
