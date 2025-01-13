@@ -34,14 +34,16 @@ const Spells = () => {
 
     const handleSearch = (searchTerm) => {
         setIsSearching(searchTerm.length > 0);
-        const filtered = spells.filter(spell => {
+        const filtered = spells.filter((spell) => {
             if (!spell) return false;
-            
-            const nameMatch = spell.name && 
+
+            const nameMatch =
+                spell.name &&
                 spell.name.toLowerCase().includes(searchTerm.toLowerCase());
-            const effectMatch = spell.effect &&
+            const effectMatch =
+                spell.effect &&
                 spell.effect.toLowerCase().includes(searchTerm.toLowerCase());
-            
+
             return nameMatch || effectMatch;
         });
         setFilteredSpells(filtered);
@@ -76,7 +78,10 @@ const Spells = () => {
                         </div>
                     ) : (
                         <div className={styles.spellsContainer}>
-                            {(filteredSpells.length > 0 ? filteredSpells : spells).map((spell, index) => (
+                            {(filteredSpells.length > 0
+                                ? filteredSpells
+                                : spells
+                            ).map((spell, index) => (
                                 <div key={`${spell.spell}-${index}`}>
                                     <SpellCard spell={spell} />
                                 </div>

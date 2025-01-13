@@ -15,11 +15,8 @@ const HouseInfo = () => {
         const fetchHouseInfo = async () => {
             try {
                 setIsLoading(true);
-                const response = await axios.get('https://magical-companion-api.vercel.app/houses');
-                const house = response.data[0]?.houses.find(
-                    h => h.name.toLowerCase() === name.toLowerCase()
-                );
-                setHouseInfo(house || null);
+                const response = await axios.get(`https://magical-companion-api.vercel.app/houses/${name}`);
+                setHouseInfo(response.data || null);
             } catch (error) {
                 console.error('Error fetching house:', error);
                 setHouseInfo(null);
