@@ -1,12 +1,15 @@
 import React from "react";
 import ResponsiveAppBar from "../components/header";
 import SortingQ from "../components/sortingq";
+import BackButton from "../components/backbtn";
+import styles from "../styles/sorting.module.css";
 
 const SortingHat = () => {
     return (
-        <div>
+        <div className={styles.sorting}>
             <ResponsiveAppBar />
-            SortingHat
+            <BackButton />
+            <h1 className="heading">Sorting Hat</h1>
             <SortingQ />
         </div>
     );
